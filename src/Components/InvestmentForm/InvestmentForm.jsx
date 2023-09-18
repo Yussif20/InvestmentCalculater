@@ -20,6 +20,21 @@ const InvestmentForm = () => {
     setInvestmentDuration(e.target.value);
   };
 
+  const submitHandler = (e) => {
+    e.preventDefault();
+    const investmentData = {
+      curSavings: currentSavings,
+      yearSavings: yearlySavings,
+      expectInterest: expectedInterest,
+    };
+  };
+  const resetHandler = (e) => {
+    e.preventDefault();
+    setCurrentSavings("");
+    setYearlySavings("");
+    setExpectedInterest("");
+    setInvestmentDuration("");
+  };
   return (
     <form className={styles.form}>
       <div className={styles["input-group"]}>
@@ -29,6 +44,7 @@ const InvestmentForm = () => {
             type="number"
             id="current-savings"
             onChange={currentSavingsHandler}
+            value={currentSavings}
           />
         </p>
         <p>
@@ -37,6 +53,7 @@ const InvestmentForm = () => {
             type="number"
             id="yearly-contribution"
             onChange={yearlySavingsHandler}
+            value={yearlySavings}
           />
         </p>
       </div>
@@ -49,6 +66,7 @@ const InvestmentForm = () => {
             type="number"
             id="expected-return"
             onChange={expectedInterestHandler}
+            value={expectedInterest}
           />
         </p>
         <p>
@@ -57,14 +75,23 @@ const InvestmentForm = () => {
             type="number"
             id="duration"
             onChange={investmentDurationHandler}
+            value={investmentDuration}
           />
         </p>
       </div>
       <p className="actions">
-        <button type="reset" className={styles.buttonAlt}>
+        <button
+          type="reset"
+          className={styles.buttonAlt}
+          onReset={resetHandler}
+        >
           Reset
         </button>
-        <button type="submit" className={styles.button}>
+        <button
+          type="submit"
+          className={styles.button}
+          onSubmit={submitHandler}
+        >
           Calculate
         </button>
       </p>
