@@ -8,7 +8,7 @@ let initialData = {
   duration: 2500,
 };
 
-const InvestmentForm = () => {
+const InvestmentForm = (props) => {
   // const [currentSavings, setCurrentSavings] = useState("");
   // const [yearlySavings, setYearlySavings] = useState("");
   // const [expectedInterest, setExpectedInterest] = useState("");
@@ -39,6 +39,7 @@ const InvestmentForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    props.onCalculate(userInput);
   };
   const resetHandler = (e) => {
     e.preventDefault();
