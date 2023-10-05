@@ -2,10 +2,10 @@ import styles from "./InvestmentForm.module.css";
 import { useState } from "react";
 
 let initialData = {
-  "current-savings": 1000,
-  "yearly-contribution": 1500,
-  "expected-return": 2000,
-  duration: 2500,
+  "current-savings": 10000,
+  "yearly-contribution": 1200,
+  "expected-return": 7,
+  duration: 10,
 };
 
 const InvestmentForm = (props) => {
